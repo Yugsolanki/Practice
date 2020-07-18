@@ -1,3 +1,5 @@
+//////////ColorFull Progress Bar//////////
+
 let progress = document.getElementById('progressbar');
 let totalHeight = document.body.scrollHeight - window.innerHeight;
 window.onscroll = function() {
@@ -23,23 +25,11 @@ window.onload = function() {
 $('.hbd-container').fireworks();
 
 
-//////////Text Reveal//////////
-
-function delay() {
-  $(function() {
-    $('.delay').delayText({});
-  });
-}
 
 
-
-
+//////////Memories Box Reveal//////////
 
 gsap.registerPlugin(ScrollTrigger);
-
-ScrollTrigger.create({
-  targets: delay()
-})
 
 var mboxOdd = $(".mbox:even");
 var mboxEven = $(".mbox:odd");
@@ -63,3 +53,29 @@ gsap.fromTo(mboxEven, {
     start: 'top -50%'
     }
 })
+
+
+
+
+//////////TBH Book//////////
+$(window).ready(function() {
+  $('#magazine').turn({
+    display: 'double',
+    acceleration: true,
+    gradients: !$.isTouch,
+    elevation: 50,
+    when: {
+      turned: function(e, page) {
+      }
+    }
+  });
+});
+
+
+$(window).bind('keydown', function(e) {
+
+  if (e.keyCode == 37)
+    $('#magazine').turn('previous');
+  else if (e.keyCode == 39)
+    $('#magazine').turn('next');
+});

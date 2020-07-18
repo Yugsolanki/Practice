@@ -3,10 +3,13 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 
@@ -20,7 +23,7 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-  width: 7px;
+  width: 9px;
   z-index: 100000;
   height: 100%;
   background: rgba(0,0,0, 0.5);
@@ -29,7 +32,7 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-  width: 7px;
+  width: 9px;
   z-index: 1000000;
   background: linear-gradient(to top, #008aff, #00ffe7);
   animation: scrollbar 5s linear infinite;
@@ -85,14 +88,14 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 100000;
+  z-index: 1000;
   background: linear-gradient(to top, #000, transparent, transparent, transparent)
 }
 
 .hbd-container img {
   margin: auto;
-  width: 900px;
-  height: 900px;
+  width: 700px;
+  height: 700px;
   z-index: 1;
 }
 .hbd-container i {
@@ -136,6 +139,7 @@ body {
   font-size: 1.8em;
   font-family: "Karma";
   font-weight: 300;
+  transition: 2s linear;
 }
 
 
@@ -154,7 +158,7 @@ body {
   width: 100%;
   height: 100%;
   padding: 4em 0;
-  overflow: auto;
+  overflow: hidden;
 }
 .memories .mbox img {
   width: 400px;
@@ -194,11 +198,12 @@ body {
   height: 100%;
   background: black;
   color: #fff;
-  padding: 7em 0;
   display: grid;
+  padding: 7em 0;
   overflow: hidden;
 }
 .para2 p {
+  width: 100%;
   margin: auto;
   padding: 30px;
   text-align: center;
@@ -306,11 +311,56 @@ body {
 
 
 
-@media only screen and (max-width:1200px) {
- 
- .para1 {
-   padding: 7em 0;
- }
+/**********TBH Book Flip*********/
+
+.book {
+  position: relative;
+  width: 100%;
+  height: 1000px;
+  display: grid;
+  background: #474960;
+  overflow-x: hidden;
+}
+
+#magazine {
+  position: relative;
+  display: single;
+  margin: auto;
+  width: 900px;
+  height: 650px;
+}
+#magazine:before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: 50%;
+  -webkit-box-shadow: 0 4px 10px #000;
+  -moz-box-shadow: 0 4px 10px #000;
+  -ms-box-shadow: 0 4px 10px #000;
+  -o-box-shadow: 0 4px 10px #000;
+  box-shadow: 0 4px 10px #000;
+}
+#magazine div>img {
+  width: 100%;
+}
+#magazine .turn-page {
+  background-size: 100% 100%;
+  -webkit-box-shadow: 0 4px 10px #000;
+  -moz-box-shadow: 0 4px 10px #000;
+  -ms-box-shadow: 0 4px 10px #000;
+  -o-box-shadow: 0 4px 10px #000;
+  box-shadow: 0 4px 10px #000;
+}
+
+
+
+@media only screen and (min-width: 1200px), screen and (max-height:300px) {
+  
+  .hbd-container {
+    height: 800px;
+  }
+  
 }
 
 
@@ -333,15 +383,14 @@ body {
   
   
   .hbd-container img {
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
   }
   .hbd-container i {
     font-size: 5em;
   }
   
-  
-  .para2{
+  .para2 {
     padding: 5em 0;
   }
   .para1 p,
@@ -354,26 +403,33 @@ body {
     display: grid;
     grid-template-columns: auto auto auto;
   }
+  
+  
+  #magazine {
+    display: single;
+    margin: auto;
+    width: 760px;
+    height: 500px;
+  }
+  
 }
+
+
 
 @media only screen and (max-width: 430px) {
 
 
-
   #scrollPath {
-    width: 4px;
+    display: none;
   }
   #progressbar {
-    width: 4px;
+    display: none;
   }
-  #progressbar:before {
-    filter: blur(2px);
-  }
-  #progressbar:after {
-    filter: blur(4px);
-  }
+  
 
-
+  .hbd-container {
+    min-height: 100vh;
+  }
   .hbd-container img {
     width: 350px;
     height: 350px;
@@ -382,10 +438,11 @@ body {
     font-size: 3em;
   }
   
-  .para1, 
+  .para1 ,
   .para2 {
-    padding: 4em 0;
+    padding: 2em 0;
   }
+  
   .para1 p, 
   .para2 p {
     font-size: 1.1em;
@@ -395,8 +452,8 @@ body {
   .memories .mbox {
   width: 100%;
   height: 100%;
-  padding: 2em 0;
   display: flex;
+  margin: 2em 0;
   flex-flow: column;
   align-items: center;
   }
@@ -413,7 +470,7 @@ body {
   .memories .m-content h3 {
   color: #999;
   margin: .5em 0 .5em 0;
-}
+  }
   
   .main .gallery {
     display: block;
@@ -429,5 +486,16 @@ body {
     position: relative;
     display: block;
     filter: brightness(1);
+  }
+  
+  
+  .book {
+    height: 500px;
+  }
+  #magazine {
+  display: single;
+  width: 380px;
+  height: 250px;
+  margin: auto 0 auto 5px;
   }
 }
