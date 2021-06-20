@@ -11,31 +11,24 @@
 
 <body>
   
-  <div class="container">  
-  <form id="contact" action="https://formsubmit.co/yugsolanki21@gmail.com" method="POST">
-    <h3>Quick Contact</h3>
-    <h4>Contact us today, and get reply with in 24 hours!</h4>
-    <fieldset>
-      <input placeholder="Your name" type="text" tabindex="1" required autofocus>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Your Email Address" type="email" tabindex="2" required>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Your Web Site starts with http://" type="url" tabindex="4" required>
-    </fieldset>
-    <fieldset>
-      <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
-    </fieldset>
-    <fieldset>
-      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-    </fieldset>
-  </form>
- 
-  
+  <div class="container">
+    <h1>FormSubmit Demo</h1>
+    <form target="_blank" action="https://formsubmit.co/yugsolanki21@gmail.com" method="POST">
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                </div>
+                <div class="col">
+                    <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
+    </form>
 </div>
 
 </body>
